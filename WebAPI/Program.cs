@@ -12,20 +12,21 @@ namespace WebAPI
 
             if (args.Length != 3)
             {
-                Console.WriteLine("Please enter 3 numbers:  ");
+                Console.WriteLine("Please enter Url, API Key and Host ");
             }
             else
             {
-                
-
+                string url = args[0];
+                string key = args[1];
+                string host = args[2];
+                var demo = new Demo();
+                var result = await demo.Call(url, key, host);
+                Console.WriteLine(result);
 
             }
-            var demo = new Demo();
-            var result = await demo.call("https://pakistan-stock-exchange-data-portal.p.rapidapi.com/psx/top-3",
-                "350db33d16msh554790632a4543cp19e989jsna537cb041e1c",
-                "pakistan-stock-exchange-data-portal.p.rapidapi.com");
-            
-            Console.WriteLine(result);
+
+            Console.WriteLine("Press enter to exit.");
+            Console.ReadLine();
 
         }
 

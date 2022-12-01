@@ -6,12 +6,8 @@ namespace WebAPI.Controllers
 {
     public class Demo
     {
-        public Demo()
-        {
-             
-            
-        }
-        public async Task<string> call(string url, string key, string host) 
+        
+        public async Task<string> Call(string url, string key, string host) 
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage
@@ -24,11 +20,11 @@ namespace WebAPI.Controllers
                         { "X-RapidAPI-Host", host },
                 },
             };
-            using (var response = await client.SendAsync(request))
-            {
+              using (var response = await client.SendAsync(request))
+              {
                 response.EnsureSuccessStatusCode();
                 return await response.Content.ReadAsStringAsync();
-            }
+              }
 
         }
 
