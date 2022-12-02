@@ -1,5 +1,5 @@
 using System;
-using WebAPI.Controllers;
+using System.Text.RegularExpressions;
 
 namespace WebAPI
 {
@@ -19,6 +19,9 @@ namespace WebAPI
                 string url = args[0];
                 string key = args[1];
                 string host = args[2];
+
+               
+
                 var demo = new Demo();
                 var result = await demo.Call(url, key, host);
                 Console.WriteLine(result);
